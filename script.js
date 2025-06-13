@@ -168,3 +168,29 @@ app.post("/contact", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+//FORM
+const form = document.getElementById("contact-form");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault(); // stop the form from refreshing the page
+
+  // Get the values from the form
+  const name = form.fullname.value.trim();
+  const email = form.email.value.trim();
+  const phone = form.phone.value.trim();
+  const subject = form.subject.value.trim();
+  const message = form.message.value.trim();
+
+  // Basic validation
+  if (!name || !email || !phone || !subject || !message) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  // Show a confirmation (you can replace this with an actual send)
+  alert("Thank you! Your message has been submitted.");
+
+  // Optional: Clear the form
+  form.reset();
+});
